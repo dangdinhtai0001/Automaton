@@ -1,0 +1,77 @@
+{
+  "variables": [
+    "S",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "startVariable": "S",
+  "symbols": [
+    "a",
+    "b",
+    "c"
+  ],
+  "rules": [
+    {
+      "leftSide": "S",
+      "rightSide": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "leftSide": "A",
+      "rightSide": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "leftSide": "A",
+      "rightSide": [
+        "C",
+        "F"
+      ]
+    },
+    {
+      "leftSide": "B",
+      "rightSide": [
+        "c"
+      ]
+    },
+    {
+      "leftSide": "B",
+      "rightSide": [
+        "EB"
+      ]
+    },
+    {
+      "leftSide": "C",
+      "rightSide": [
+        "a"
+      ]
+    },
+    {
+      "leftSide": "D",
+      "rightSide": [
+        "b"
+      ]
+    },
+    {
+      "leftSide": "E",
+      "rightSide": [
+        "c"
+      ]
+    },
+    {
+      "leftSide": "F",
+      "rightSide": [
+        "A",
+        "D"
+      ]
+    }
+  ]
+}

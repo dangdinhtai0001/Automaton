@@ -1,0 +1,64 @@
+{
+  "states": [
+    "P0",
+    "P1",
+    "P2"
+  ],
+  "symbols": [
+    "a",
+    "b",
+    "c"
+  ],
+  "startState": "P0",
+  "acceptStates": [
+    "P1",
+    "P2"
+  ],
+  "transitionFunctionReaders": [
+    {
+      "source": "P0",
+      "destination": "P1",
+      "edges": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "source": "P0",
+      "destination": "P2",
+      "edges": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "source": "P1",
+      "destination": "P2",
+      "edges": [
+        "a",
+        "c"
+      ]
+    },
+    {
+      "source": "P1",
+      "destination": "P0",
+      "edges": [
+        "c"
+      ]
+    },{
+      "source": "P2",
+      "destination": "P1",
+      "edges": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "source": "P2",
+      "destination": "P2",
+      "edges": [
+        "c"
+      ]
+    }
+  ]
+}

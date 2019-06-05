@@ -1,0 +1,94 @@
+{
+  "states": [
+    "Q0",
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5"
+  ],
+  "symbols": [
+    "0",
+    "1"
+  ],
+  "startState": "Q0",
+  "acceptStates": [
+    "Q1",
+    "Q2",
+    "Q4"
+  ],
+  "transitionFunctionReaders": [
+    {
+      "source": "Q0",
+      "destination": "Q1",
+      "edges": [
+        "1"
+      ]
+    },
+    {
+      "source": "Q0",
+      "destination": "Q3",
+      "edges": [
+        "0"
+      ]
+    },
+    {
+      "source": "Q1",
+      "destination": "Q2",
+      "edges": [
+        "0"
+      ]
+    },
+    {
+      "source": "Q1",
+      "destination": "Q5",
+      "edges": [
+        "1"
+      ]
+    },{
+      "source": "Q2",
+      "destination": "Q2",
+      "edges": [
+        "0"
+      ]
+    },
+    {
+      "source": "Q2",
+      "destination": "Q5",
+      "edges": [
+        "1"
+      ]
+    },
+    {
+      "source": "Q3",
+      "destination": "Q0",
+      "edges": [
+        "0"
+      ]
+    },{
+      "source": "Q3",
+      "destination": "Q4",
+      "edges": [
+        "1"
+      ]
+    },{
+      "source": "Q4",
+      "destination": "Q2",
+      "edges": [
+        "0"
+      ]
+    },{
+      "source": "Q4",
+      "destination": "Q5",
+      "edges": [
+        "1"
+      ]
+    },{
+      "source": "Q5",
+      "destination": "Q5",
+      "edges": [
+        "0","1"
+      ]
+    }
+  ]
+}

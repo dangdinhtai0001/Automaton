@@ -1,0 +1,59 @@
+{
+  "variables": [
+    "S",
+    "A",
+    "B",
+    "C"
+  ],
+  "startVariable": "S",
+  "symbols": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "rules": [
+    {
+      "leftSide": "S",
+      "rightSide": [
+        "A",
+        "B",
+        "C",
+        "d"
+      ]
+    },
+    {
+      "leftSide": "A",
+      "rightSide": [
+        "B",
+        "C"
+      ]
+    },
+    {
+      "leftSide": "B",
+      "rightSide": [
+        "b",
+        "B"
+      ]
+    },
+    {
+      "leftSide": "B",
+      "rightSide": [
+        "$"
+      ]
+    },
+    {
+      "leftSide": "C",
+      "rightSide": [
+        "c",
+        "C"
+      ]
+    },
+    {
+      "leftSide": "C",
+      "rightSide": [
+        "$"
+      ]
+    }
+  ]
+}
