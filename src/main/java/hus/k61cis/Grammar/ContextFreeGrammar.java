@@ -15,13 +15,6 @@ public class ContextFreeGrammar {
     private Set<String> symbols;
     private Set<ProductionRule> rules;
 
-    public ContextFreeGrammar(Set<String> variables, String startVariable, Set<String> symbols, Set<ProductionRule> rules) {
-        this.variables = variables;
-        this.startVariable = startVariable;
-        this.symbols = symbols;
-        this.rules = rules;
-    }
-
     public ContextFreeGrammar(String path) throws FileNotFoundException {
         Gson gsonRead = new Gson();
         InputStream in = new FileInputStream(path);
@@ -99,13 +92,13 @@ public class ContextFreeGrammar {
     }
 
     //START-------------------------Eliminate Useless -----------------------------------------------------------------
-    public void eliminateUseless() {
+    private void eliminateUseless() {
         eliminateNonterminateRules();
         eliminateNeverReachedFromStartingVariable();
     }
 
     //---------------Tìm tập các rule useless-----------------
-    public void eliminateNonterminateRules() {
+    private void eliminateNonterminateRules() {
         List<ProductionRule> terminateRules = new LinkedList<>();
         Set<String> terminateVariables = new HashSet<>();
         List<ProductionRule> nonterminateRules = Ultis.coppyRule(rules);
@@ -146,7 +139,7 @@ public class ContextFreeGrammar {
     //---------------Tìm tập các rule useless-----------------
 
     //-----------------------Tìm tập các rule không thể suy ra đc từ start var------------------------------
-    public void eliminateNeverReachedFromStartingVariable() {
+    private void eliminateNeverReachedFromStartingVariable() {
         List<ProductionRule> list = new LinkedList<>();
         Set<String> start = new HashSet<>();
 
@@ -247,8 +240,7 @@ public class ContextFreeGrammar {
 
     private void getPossibleCombinationsRules(int[] x, List<String> nullableVariables,
                                               List<ProductionRule> ruleList, List<String> rightSide, String leftSide) {
-        List<String> right = new LinkedList<>();
-        right.addAll(rightSide);
+        List<String> right = new LinkedList<>(rightSide);
 
         List<String> list = new LinkedList<>();
         for (int i = 0; i < x.length; i++) {
@@ -294,6 +286,7 @@ public class ContextFreeGrammar {
                 }
             }
             rules.addAll(newRules);
+            //noinspection CollectionAddedToSelf
             newRules.removeAll(newRules);
             oldIndex = newIndex;
             newIndex = rules.size();

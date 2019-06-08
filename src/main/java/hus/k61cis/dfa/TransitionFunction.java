@@ -77,7 +77,7 @@ public class TransitionFunction {
     }
 
 
-    public void printTransitionTable() {
+    void printTransitionTable() {
         String[][] transition = new String[states.size()][symbols.size() + 1];
         String[] symbols = new String[this.symbols.size() + 1];
         String[] s = this.symbols.toArray(new String[0]);

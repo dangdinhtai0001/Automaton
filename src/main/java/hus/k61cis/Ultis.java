@@ -8,9 +8,7 @@ public class Ultis {
     public static Set<String> getSetFromString(String s, String regex) {
         Set<String> set = new HashSet<>();
         String[] a = s.split(regex);
-        for (int i = 0; i < a.length; i++) {
-            set.add(a[i]);
-        }
+        Collections.addAll(set, a);
         return set;
     }
 
@@ -21,11 +19,7 @@ public class Ultis {
     }
 
     public static List<ProductionRule> coppyRule(Collection<ProductionRule> collection) {
-        List<ProductionRule> rules = new LinkedList<>();
-        for (ProductionRule productionRule : collection) {
-            rules.add(productionRule);
-        }
-        return rules;
+        return new LinkedList<>(collection);
     }
 
     public static void replaceAllStringInList(List<String> collection, String old, String replace) {
@@ -67,4 +61,12 @@ public class Ultis {
         return true;
     }
 
+    public static void printMatrix(String[][] matrix) {
+        for (String[] matrix1 : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix1[j] + "\t");
+            }
+            System.out.println();
+        }
+    }
 }

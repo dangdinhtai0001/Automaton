@@ -4,7 +4,10 @@ import hus.k61cis.Ultis;
 import hus.k61cis.dfa.Automaton;
 import hus.k61cis.dfa.TransitionFunction;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * https://www.geeksforgeeks.org/theory-computation-minimization-dfa/
@@ -23,14 +26,13 @@ public class Minimization {
         calculateNextpPartition(automaton);
         //-----tạo automaton tương đương mới------------------
         Set<String> symbols = automaton.getSymbols();
-        Set<String> states = getNewStates(automaton);
+        Set<String> states = getNewStates();
         Set<String> acceptStates = getNewAcceptStates(automaton, states);
         String startState = getNewStartState(automaton, states);
         TransitionFunction transitionFunction = getNewTransitionFunction(states, symbols, automaton);
         //-----tạo automaton tương đương mới------------------
 
-        Automaton result = new Automaton(states, symbols, startState, acceptStates, transitionFunction);
-        return result;
+        return new Automaton(states, symbols, startState, acceptStates, transitionFunction);
     }
 
     //START-----------------TÌM HÀM CHUYỂN TRẠNG THÁI MỚI---------------------
@@ -84,7 +86,7 @@ public class Minimization {
     //END-----------------TÌM TRẠNG THÁI BẮT ĐẦU MỚI---------------------
 
     //START-----------------TÌM TẬP TRẠNG THÁI MỚI---------------------
-    private Set<String> getNewStates(Automaton automaton) {
+    private Set<String> getNewStates() {
         Set<String> states = new HashSet<>();
         for (Set<String> partition : partitioned.getCurrentPartitions()) {
             states.add(Ultis.getStringFromCollection(partition, "&"));
@@ -100,9 +102,7 @@ public class Minimization {
      * sẽ không chứa bất kì acceptStates nào. Phân vùng này được gọi là P0.
      */
     private void firstPartitions(Automaton automaton) {
-        Set<String> unacceptStates = new HashSet<>();
-
-        unacceptStates.addAll(automaton.getStates());
+        Set<String> unacceptStates = new HashSet<>(automaton.getStates());
 
         unacceptStates.removeAll(automaton.getAcceptStates());
 
@@ -211,7 +211,7 @@ public class Minimization {
     //END------------------Tách các trạng thái phan biệt đc trong 1 Partition-------------------------
 
     //-----------Kiểm tra hai trạng thái có phân biệt hay không-----------
-    public boolean isDistinguishable(String state1, String state2, Automaton automaton) {
+    private boolean isDistinguishable(String state1, String state2, Automaton automaton) {
         TransitionFunction transitionFunction = automaton.getTransitionFunction();
         boolean res = false;
 

@@ -3,11 +3,11 @@ import hus.k61cis.minimizationDFA.Minimization;
 import hus.k61cis.minimizationDFA.SimplifyingDFA;
 import junit.framework.TestCase;
 
-import java.io.*;
+import java.io.FileNotFoundException;
 
 public class TestDFA extends TestCase {
     public void testCreateAutomaton() throws FileNotFoundException {
-        String path = "C:\\Users\\dangd\\IdeaProjects\\hus.k61cis.dfa.Automaton\\src\\test\\DataTest\\DFA\\TestSimplicityData.json";
+        String path = "C:\\Users\\dangd\\IdeaProjects\\Automaton\\src\\test\\DataTest\\DFA\\TestSimplicityData.json";
         Automaton automaton = new Automaton(path);
         automaton.print();
     }
@@ -28,6 +28,8 @@ public class TestDFA extends TestCase {
         Minimization minimization = new Minimization();
 
         Automaton automaton = new Automaton(path);
+
+        automaton.print();
 
         automaton = minimization.minimization(automaton);
         automaton.print();

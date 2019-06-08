@@ -16,13 +16,11 @@ public class SimplifyingDFA {
         Set<String> symbols = automaton.getSymbols();
         String startState = automaton.getStartState();
 
-        Automaton res = new Automaton(states, symbols, startState, acceptStates, newTransitionFunction);
-
-        return res;
+        return new Automaton(states, symbols, startState, acceptStates, newTransitionFunction);
     }
 
     //START---------------HÀM CHUYỂN TRẠNG THÁI MỚI--------------------------------------------------------------------
-    public TransitionFunction getNewTransitionFunction(Automaton automaton) {
+    private TransitionFunction getNewTransitionFunction(Automaton automaton) {
         TransitionFunction transitionFunction = automaton.getTransitionFunction();
 
         //-------Tìm các trạng thái không tối thiểu------------

@@ -12,7 +12,7 @@ public class ProductionRule {
     private String leftSide;
     private List<String> rightSide;
 
-    public ProductionRule(String leftSide, String rightSide, String regex) {
+    ProductionRule(String leftSide, String rightSide, String regex) {
         this.leftSide = leftSide;
 
         String[] r = rightSide.split(regex);
@@ -21,13 +21,13 @@ public class ProductionRule {
 
     @Override
     public String toString() {
-        String str = leftSide;
+        StringBuilder str = new StringBuilder(leftSide);
 
-        str += "->";
+        str.append("->");
         for (String s : rightSide) {
-            str += " " + s;
+            str.append(" ").append(s);
         }
-        return str;
+        return str.toString();
     }
 
     @Override
